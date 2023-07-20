@@ -1,0 +1,71 @@
+<div class="main-chartsMenu-container">
+  <ion-card (click)="changeChart(1)" class="card-container" [ngClass]="{'main-card-hover': displayChartType == 1}">
+
+    <mat-icon *ngIf="displayChartType == 1" class="card-matIcon">check_circle</mat-icon>
+    <ion-card-header>
+      <ion-card-subtitle>Pediementos</ion-card-subtitle>
+      <ion-card-title>{{pediementosTotal}}</ion-card-title>
+      <ion-card-subtitle>del año en curso</ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+  <ion-card (click)="changeChart(2)" class="card-container" [ngClass]="{'main-card-hover': displayChartType == 2}">
+    <mat-icon *ngIf="displayChartType == 2" class="card-matIcon">check_circle</mat-icon>
+    <ion-card-header>
+      <ion-card-subtitle>Facturados</ion-card-subtitle>
+      <ion-card-title>499</ion-card-title>
+      <ion-card-subtitle>del año en curso</ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+  <ion-card (click)="changeChart(3)" class="card-container" [ngClass]="{'main-card-hover': displayChartType == 3}">
+    <mat-icon *ngIf="displayChartType == 3" class="card-matIcon">check_circle</mat-icon>
+
+    <ion-card-header>
+      <ion-card-subtitle>Estatus de Trafico</ion-card-subtitle>
+      <!-- <ion-card-title>Verde</ion-card-title> -->
+      <div class="main-lights-container">
+        <div class="light-container">
+          <div class="lights red"></div>
+          <ion-card-subtitle>3</ion-card-subtitle>
+        </div>
+        <div class="light-container">
+          <div class="lights green"></div>
+          <ion-card-subtitle>10</ion-card-subtitle>
+        </div>
+      </div>
+    </ion-card-header>
+  </ion-card>
+  <ion-card (click)="changeChart(4)" class="card-container" [ngClass]="{'main-card-hover': displayChartType == 4}">
+    <mat-icon *ngIf="displayChartType == 4" class="card-matIcon">check_circle</mat-icon>
+
+    <ion-card-header>
+      <ion-card-subtitle>Traking de pedimentos</ion-card-subtitle>
+      <ion-card-title>10</ion-card-title>
+      <ion-card-subtitle>Más en este mes</ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+</div>
+
+<div>
+  <div [ngSwitch]="displayChartType">
+    <ng-container *ngSwitchCase="1">
+      <ng-container *ngIf="showPedimentosChart">
+        <app-linear-chart inputChartType="line" inputChartName="Pediementos" [inputChartData]="inputChartDataPedimentos" [isDemo]="!isDemo"></app-linear-chart>
+      </ng-container>
+    </ng-container>
+    <ng-container *ngSwitchCase="2">
+      <app-linear-chart inputChartType="line" inputChartName="Embarques" [inputChartData]="inputChartDataFacturados" [isDemo]="!isDemo"></app-linear-chart>
+    </ng-container>
+    <ng-container *ngSwitchCase="3">
+      <app-linear-chart inputChartType="doughnut" inputChartName="Estatus de Trafico" [inputChartData]="inputChartDataStatusTrafic" [customColors]="statusTraficColors"
+      [customOptions]="customChartOptions" [isDemo]="isDemo"></app-linear-chart>
+    </ng-container>
+    <ng-container *ngSwitchCase="4">
+      <ion-card>
+        <component-tracking-time-line-simple [isDemo]="isDemo"></component-tracking-time-line-simple>        
+      </ion-card>
+    </ng-container>
+    <ng-container *ngSwitchDefault>
+      <app-linear-chart inputChartType="line" inputChartName="Pediementos" [inputChartData]="inputChartDataPedimentos" [isDemo]="!isDemo"></app-linear-chart>
+    </ng-container>
+  </div>
+</div>  

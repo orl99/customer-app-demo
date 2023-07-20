@@ -1,0 +1,24 @@
+<div class="main-reports-container">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Capture fechas</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label>Fecha inicio</ion-label>
+        <ion-datetime display-format="DD.MM.YYYY"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label>Fecha fin</ion-label>
+        <ion-datetime display-format="DD.MM.YYYY"></ion-datetime>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Table component -->
+  <ion-card>
+    <ng-container *ngIf="!!tableColums">
+      <component-table [dataSource]="mockDataSource" [tableColumns]="tableColums"></component-table>
+    </ng-container>
+  </ion-card>
+</div>

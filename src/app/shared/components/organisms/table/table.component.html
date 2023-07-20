@@ -1,0 +1,11 @@
+<ng-container *ngIf="!!tableData.length">
+  <mat-table [dataSource]="dataSource" mat-elevation-z8 class="mat-table cdk-table">
+    <!-- User name Definition -->  
+    <ng-container *ngFor="let item of tableColumnsData; let i=index" [matColumnDef]="item">
+      <mat-header-cell *matHeaderCellDef> {{item}} </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row[item]}} </mat-cell>
+    </ng-container>  
+    <mat-header-row *matHeaderRowDef="tableColumnsData"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: tableColumnsData"></mat-row>
+  </mat-table>
+</ng-container>

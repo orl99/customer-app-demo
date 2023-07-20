@@ -1,0 +1,16 @@
+<ion-card class="ion-padding">
+  <div class="flag-container">
+    <ion-card-subtitle class="flag">{{isDemoFlagLabel}}</ion-card-subtitle>
+  </div>
+  <ion-card-title style="font-size: 1.8em; margin-bottom: 20px;">{{chartName}}</ion-card-title>
+  <canvas #DomCanvas
+          *ngIf="!!inputChartData"
+          baseChart 
+          [datasets]="chartData" 
+          [labels]="chartLabels" 
+          [chartType]="chartType"
+          [options]="chartOptions"
+          [colors]="chartColors"
+          [legend]="showLengend"
+          ></canvas>
+</ion-card>

@@ -1,0 +1,9 @@
+.mat-table {
+    background: var(--mat-table-bg);
+}
+.mat-header-cell, .mat-cell {
+    color: var(--ion-text-color)
+}  
+mat-row, mat-header-row, mat-footer-row, th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
+    border-bottom: 1px solid rgba(var(--ion-text-color-rgb), 0.12);
+}

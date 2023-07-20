@@ -1,0 +1,52 @@
+.main-chartsMenu-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+}
+
+ion-card-title {
+    font-size: 2.2em;
+}
+.main-card-hover {
+    // background: rgba(127, 205, 243, 0.08) !important;
+    background-color: var(--ion-color-primary-selected);
+}
+.card-container {
+    position: relative;
+}
+
+.card-matIcon {
+    color: var(--ion-color-primary);
+    // color: #7FCDF3;
+    position: absolute;
+    top: 10px;
+    left: calc(100% - 35px);
+    z-index: 10;
+}
+
+// Semaforo :D
+.main-lights-container{
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 10px;
+}
+.light-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    ion-card-subtitle{
+        margin-top: 5px;
+    }
+}
+.lights {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+        .red {
+            background-color: var(--ion-color-danger);   
+        }
+        .green {
+            background-color: var(--ion-color-success);
+        }
